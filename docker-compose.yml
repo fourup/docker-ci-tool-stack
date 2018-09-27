@@ -17,7 +17,7 @@ services:
     networks:
       - prodnetwork
     volumes:
-      - nexus-data:/nexus-data
+      - ./data/nexus-data:/nexus-data
   jenkins:
     build: ./jenkins
     restart: always
@@ -28,7 +28,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - jenkins-data:/var/lib/jenkins/
+      - ./data/jenkins:/var/jenkins_home
     depends_on:
       - nexus
       - sonar
