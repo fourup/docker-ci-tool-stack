@@ -61,6 +61,7 @@ services:
      - SONARQUBE_JDBC_USERNAME=sonar
      - SONARQUBE_JDBC_PASSWORD=sonar
 
+
 ##########################################################################################
 # DISABLED: GitLab takes too much memory and CPU. Demo uses GitHub repositories instead.
 #
