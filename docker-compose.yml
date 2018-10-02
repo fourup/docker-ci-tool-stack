@@ -29,6 +29,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - ./data/jenkins:/var/jenkins_home
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
     depends_on:
       - nexus
       - sonar
