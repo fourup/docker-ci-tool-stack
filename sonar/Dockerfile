@@ -18,6 +18,7 @@ ENV SONARQUBE_HOME /opt/sonarqube
 ENV SONAR_JAVA_PLUGIN 4.2
 ENV SONAR_WEB_PLUGIN 2.4
 ENV SONAR_SCM_GIT_PLUGIN 1.0
+ENV SONAR_AUTH_GITLAB_PLUGIN 1.2.2
 
 RUN INSTALL_PKGS="java-1.8.0-openjdk.x86_64" && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
@@ -48,6 +49,7 @@ RUN mkdir -p $SONARQUBE_HOME/extensions/plugins/
 ADD http://central.maven.org/maven2/org/sonarsource/java/sonar-java-plugin/${SONAR_JAVA_PLUGIN}/sonar-java-plugin-${SONAR_JAVA_PLUGIN}.jar $SONARQUBE_HOME/extensions/plugins/sonar-java-plugin-${SONAR_JAVA_PLUGIN}.jar
 ADD http://central.maven.org/maven2/org/sonarsource/sonar-web-plugin/sonar-web-plugin/${SONAR_WEB_PLUGIN}/sonar-web-plugin-${SONAR_WEB_PLUGIN}.jar $SONARQUBE_HOME/extensions/plugins/sonar-web-plugin-${SONAR_WEB_PLUGIN}.jar
 ADD http://central.maven.org/maven2/org/codehaus/sonar-plugins/sonar-scm-git-plugin/${SONAR_SCM_GIT_PLUGIN}/sonar-scm-git-plugin-${SONAR_SCM_GIT_PLUGIN}.jar $SONARQUBE_HOME/extensions/plugins/sonar-scm-git-plugin-${SONAR_SCM_GIT_PLUGIN}.jar
+ADD https://github.com/gabrie-allaigre/sonar-auth-gitlab-plugin/releases/download/${SONAR_AUTH_GITLAB_PLUGIN}/sonar-auth-gitlab-plugin-${SONAR_AUTH_GITLAB_PLUGIN}.jar SONARQUBE_HOME/extensions/plugins/sonar-auth-gitlab-plugin-${SONAR_AUTH_GITLAB_PLUGIN}.jar
 COPY run.sh $SONARQUBE_HOME
 
 WORKDIR $SONARQUBE_HOME
