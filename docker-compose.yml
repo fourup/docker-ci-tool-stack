@@ -58,12 +58,11 @@ services:
     depends_on:
       - sonardb
     volumes:
-      - ./data/sonar:/opt/sonarqube
+      - ./data/sonar/extensions:/opt/sonarqube/extensions
     environment:
-     - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
-     - SONARQUBE_JDBC_USERNAME=sonar
-     - SONARQUBE_JDBC_PASSWORD=sonar
-
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
 
 ##########################################################################################
 # DISABLED: GitLab takes too much memory and CPU. Demo uses GitHub repositories instead.
