@@ -43,7 +43,9 @@ services:
     restart: always
     image: postgres:9.6
     ports:
-      - "5432:5432"
+      - "5432"
+    volumes:
+      - ./data/sonardb:/var/jenkins_home
     environment:
      - POSTGRES_USER=sonar
      - POSTGRES_PASSWORD=sonar
