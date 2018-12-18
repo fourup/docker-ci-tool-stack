@@ -45,7 +45,7 @@ services:
     ports:
       - "5432"
     volumes:
-      - ./data/sonardb:/var/jenkins_home
+      - ./data/sonardb:/var/lib/postgresql/data
     environment:
      - POSTGRES_USER=sonar
      - POSTGRES_PASSWORD=sonar
